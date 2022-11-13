@@ -17,23 +17,6 @@ jobs:
         with:
           go-version: 1.18
 
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_HOST_URL: http://172.17.0.2:9000
-          SONAR_TOKEN: sqp_f720f67eaa62fb88bbb5c428dae41c260ddddf70
-
-          # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - 
-      #   uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
       - 
         name: Run tests
         run: go test
